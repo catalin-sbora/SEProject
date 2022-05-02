@@ -15,4 +15,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.16" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SEProjectApp.AppLogic\SEProjectApp.AppLogic.csproj" />
+    <ProjectReference Include="..\SEProjectApp.DataAccess\SEProjectApp.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
