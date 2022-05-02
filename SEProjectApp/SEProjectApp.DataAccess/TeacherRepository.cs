@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace SEProjectApp.DataAccess
 {
-    public class TeacherRepository: BaseRepository<Teacher>, ITeachersRepository
+    public class TeacherRepository : BaseRepository<Teacher>, ITeachersRepository
     {
+        public TeacherRepository(SEProjectAppDbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }

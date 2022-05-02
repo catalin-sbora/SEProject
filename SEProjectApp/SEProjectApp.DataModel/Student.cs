@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace SEProjectApp.DataModel
 {
-    public class Student
-    {
-        public Guid Id { get; set; }
+    public class Student : EntityClass
+    {       
         public string Name { get; set; }
         public ICollection<Course> Courses { get; set; }
     }
