@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SEProjectApp.Abstractions.Repository;
 using SEProjectApp.Models;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,16 @@ namespace SEProjectApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IStudentsRepository studentsRepository;
+        public HomeController(ILogger<HomeController> logger, IStudentsRepository studentsRepository)
         {
             _logger = logger;
+            this.studentsRepository = studentsRepository;
         }
 
         public IActionResult Index()
         {
+            var students = studentsRepository.GetAll();
             return View();
         }
 

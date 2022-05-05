@@ -24,12 +24,16 @@ namespace SEProjectApp.DataAccess
             return returnEntity;
         }
 
-        public void Delete(Guid id)
+        public bool Delete(Guid id)
         {
-            var itemToRemove = dbContext.Set<T>()
-                                        .Single(entity => entity.Id == id);
-            dbContext.Set<T>().Remove(itemToRemove);
-            dbContext.SaveChanges();
+            var itemToRemove = GetById(id);
+            if (itemToRemove != null)
+            {
+                dbContext.Set<T>().Remove(itemToRemove);
+                dbContext.SaveChanges();
+                return true;
+            }
+            return false;
         }
     
 
@@ -41,7 +45,8 @@ namespace SEProjectApp.DataAccess
 
         public T GetById(Guid id)
         {
-            throw new NotImplementedException();
+           return dbContext.Set<T>()
+                            .Single(entity => entity.Id == id);
         }
 
         public T Update(T elementToUpdate)

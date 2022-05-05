@@ -11,7 +11,7 @@ namespace SEProjectApp.Abstractions.Repository
         T GetById(Guid id);
         ICollection<T> GetAll();
         T Add(T element);
-        void Delete(Guid id);
+        bool Delete(Guid id);
         T Update(T elementToUpdate);
     }
 }
