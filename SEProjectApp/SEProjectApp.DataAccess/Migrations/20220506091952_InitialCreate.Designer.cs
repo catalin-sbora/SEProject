@@ -10,7 +10,7 @@ using SEProjectApp.DataAccess;
 namespace SEProjectApp.DataAccess.Migrations
 {
     [DbContext(typeof(SEProjectAppDbContext))]
-    [Migration("20220505072853_InitialCreate")]
+    [Migration("20220506091952_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

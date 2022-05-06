@@ -17,7 +17,8 @@ namespace SEProjectApp.DataAccess
         }
         public T Add(T element)
         {
-            var returnEntity = dbContext.Set<T>().Add(element)
+            var returnEntity = dbContext.Set<T>()
+                                        .Add(element)
                                      .Entity;
             dbContext.SaveChanges();
 

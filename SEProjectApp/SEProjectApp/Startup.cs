@@ -41,7 +41,7 @@ namespace SEProjectApp
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-                        
+            
             services.AddScoped<IStudentsRepository, StudentRepository>();
             services.AddScoped<ITeachersRepository, TeacherRepository>();
             
