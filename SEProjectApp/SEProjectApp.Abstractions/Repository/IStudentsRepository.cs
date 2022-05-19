@@ -9,5 +9,7 @@ namespace SEProjectApp.Abstractions.Repository
 {
     public interface IStudentsRepository: IBaseRepository<Student>
     {
+        IEnumerable<Student> GetStudentsWithNoCourse();
+       
     }
 }

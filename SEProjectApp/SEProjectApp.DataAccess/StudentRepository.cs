@@ -20,5 +20,13 @@ namespace SEProjectApp.DataAccess
                             .Include(student => student.Courses)
                             .ToList();
         }
+
+        public IEnumerable<Student> GetStudentsWithNoCourse()
+        {
+            return dbContext.Set<Student>()
+                            .Include(student => student.Courses)
+                            .Where(student => student.Courses.Count == 0)
+                            .AsEnumerable();
+        }
     }
 }

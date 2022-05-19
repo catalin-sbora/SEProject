@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SEProjectApp.Abstractions.Repository;
+using SEProjectApp.AppLogic;
 using SEProjectApp.DataAccess;
 using SEProjectApp.DataModel;
 
@@ -16,10 +17,12 @@ namespace SEProjectApp
     public class StudentsController : Controller
     {
         private readonly IStudentsRepository studentsRepo;
+        private readonly StudentsService studentsService;
 
-        public StudentsController(IStudentsRepository studentsRepo)
+        public StudentsController(StudentsService studentsService, IStudentsRepository studentsRepo)
         {
             this.studentsRepo = studentsRepo;
+            this.studentsService = studentsService;
         }
 
         // GET: Students
@@ -28,6 +31,11 @@ namespace SEProjectApp
             return View(studentsRepo.GetAll());
         }
 
+        public IActionResult StudentsWithNoCourse()
+        {
+            var students = studentsService.GetStudentsWithNoCourse();
+            return View("Index", students);
+        }
         // GET: Students/Details/5
         public IActionResult Details(Guid? id)
         {

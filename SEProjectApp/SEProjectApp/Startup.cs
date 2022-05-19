@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SEProjectApp.Abstractions.Repository;
+using SEProjectApp.AppLogic;
 using SEProjectApp.Data;
 using SEProjectApp.DataAccess;
 using System;
@@ -44,6 +45,7 @@ namespace SEProjectApp
             
             services.AddScoped<IStudentsRepository, StudentRepository>();
             services.AddScoped<ITeachersRepository, TeacherRepository>();
+            services.AddScoped<StudentsService>();
             
             services.AddControllersWithViews();
         }
